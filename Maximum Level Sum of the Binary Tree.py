@@ -1,13 +1,11 @@
 from collections import deque
 
-
 # Define the TreeNode
 class TreeNode:
     def __init__(self, val):
         self.val = val
         self.left = None
         self.right = None
-
 
 # Function to build tree from input list
 def build_tree(values):
@@ -33,7 +31,6 @@ def build_tree(values):
 
     return root
 
-
 # Function to find the level with the max sum
 def max_level_sum(root):
     queue = deque([root])
@@ -57,15 +54,14 @@ def max_level_sum(root):
 
     return answer
 
-
-
-# Get user input as a list
-input_str = input("Enter Input: root = ")
-input_list = [int(x) if x.strip() != "None" else None for x in input_str.split(',')]
+# Get user input as a list, accept "null"
+input_str = input("Enter tree nodes : ")
+input_list = [int(x) if x.strip().lower() != "null" else None for x in input_str.split(',')]
 
 # Build tree and find result
 root = build_tree(input_list)
 result = max_level_sum(root)
-print("Level with maximum sum is:", result)
+print("The maximum Level sum of the Binary is:", result)
+
 
 
